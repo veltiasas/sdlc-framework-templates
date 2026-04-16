@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+vendor/
+.venv/
+__pycache__/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+.next/
+.nuxt/
+
+# Environment — NEVER commit secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.coverage
+*.lcov
+
+# Logs
+*.log
+logs/
+
+# Docker
+docker-compose.override.yml
