@@ -1,0 +1,892 @@
+{
+  "schema_version": "2.0",
+  "framework_version": "2.0",
+  "source_of_truth": {
+    "framework_doc": "framework-sdlc-v2-0.docx",
+    "phase_01_guide": "fase-01-prompt-templates-v3-2.md",
+    "generated_at": "2026-04-17"
+  },
+  "coherence_check": {
+    "description": "Si fase_01_guide cambia de versión major o minor, este workplan debe regenerarse o validarse manualmente. El framework-doc puede cambiar patch sin afectar el workplan si no modifica la estructura de fases/sesiones.",
+    "last_validated_at": "2026-04-17",
+    "rules": [
+      "Los ids de sesiones (S1-S7) deben coincidir con los commands /s1-relevamiento a /s7-config",
+      "Los ids de tasks (1.1-1.8, 2.1-2.7, etc.) deben coincidir con items del tracker FASE-01-STATUS.md",
+      "El gate intermedio entre S4 y S5 no puede omitirse",
+      "El campo 'project_type' debe completarse en S1 antes de avanzar a S2"
+    ]
+  },
+  "project": {
+    "name": "",
+    "created_at": "",
+    "project_type": null,
+    "current_phase": "01",
+    "current_session": null,
+    "last_updated": "",
+    "last_updated_by": ""
+  },
+  "project_type_legend": {
+    "greenfield": "Producto nuevo sin sistemas existentes a integrar",
+    "integration": "Producto que integra con sistemas existentes del cliente",
+    "mixed": "Mezcla de componentes nuevos y integraciones con sistemas existentes"
+  },
+  "status_legend": {
+    "pending": "⬜ Pendiente — No iniciada",
+    "in_progress": "🔄 En progreso — Sesión activa trabajando en esta tarea",
+    "completed": "✅ Completada — Artefacto generado y aprobado",
+    "blocked": "⏸️ Bloqueada — Dependencia no resuelta",
+    "waiting_approval": "⏸️ Esperando aprobación — Propuesta presentada al cliente",
+    "iterating": "🔄 Iterando — Cliente pidió cambios, re-trabajando",
+    "rejected": "❌ Rechazada — Cliente rechazó el enfoque, volver a S3",
+    "skipped": "⏭️ Diferida — Pospuesta con justificación",
+    "cancelled": "❌ Descartada — No se hará, con razón documentada"
+  },
+  "phases": [
+    {
+      "id": "01",
+      "name": "Descubrimiento y planificación",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "gate_passed": false,
+      "intermediate_gate": {
+        "name": "Aprobación del cliente",
+        "between_sessions": ["S4", "S5"],
+        "status": "pending",
+        "approved_at": null,
+        "approved_by": null,
+        "approval_medium": null,
+        "approved_version": null
+      },
+      "sessions": [
+        {
+          "id": "S1",
+          "name": "Relevamiento del problema",
+          "command": "/s1-relevamiento",
+          "status": "pending",
+          "mode": "Plan Mode",
+          "model": "Opus 4.6",
+          "estimated_duration": "45-60 min (greenfield) / 60-90 min (integración)",
+          "started_at": null,
+          "completed_at": null,
+          "tasks": [
+            {
+              "id": "1.1",
+              "task": "Exploración del problema (preguntas respondidas)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Respuestas a preguntas guiadoras",
+              "acceptance_criteria": "Problema entendido a fondo antes de sintetizar",
+              "status": "pending"
+            },
+            {
+              "id": "1.2",
+              "task": "Problem statement aprobado (1 oración)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Problem statement en PROBLEM-STATEMENT.md",
+              "acceptance_criteria": "[Usuario] necesita [capacidad] porque [dolor], causa [consecuencia]",
+              "status": "pending"
+            },
+            {
+              "id": "1.3",
+              "task": "Proceso actual y actores documentados",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Sección 'Proceso actual' en PROBLEM-STATEMENT.md",
+              "acceptance_criteria": "Flujo paso a paso con actores y herramientas",
+              "status": "pending"
+            },
+            {
+              "id": "1.4",
+              "task": "Análisis competitivo desde el problema (mín. 3 alternativas)",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Tabla de alternativas en PROBLEM-STATEMENT.md",
+              "acceptance_criteria": "Qué resuelve cada una y qué NO resuelve",
+              "status": "pending"
+            },
+            {
+              "id": "1.5",
+              "task": "KPIs candidatos definidos (alto nivel, sin umbrales)",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Sección KPIs candidatos",
+              "acceptance_criteria": "3-5 KPIs sin umbrales (se definen en S5)",
+              "status": "pending"
+            },
+            {
+              "id": "1.6",
+              "task": "Inventario técnico de alto nivel (existencia, no detalle)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner + Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Sección 'Inventario técnico' en PROBLEM-STATEMENT.md",
+              "acceptance_criteria": "Greenfield: 'no aplica' justificado. Integración: sistemas, acciones, supuestos de factibilidad",
+              "status": "pending",
+              "new_in_v3_2": true
+            },
+            {
+              "id": "1.7",
+              "task": "docs/PROBLEM-STATEMENT.md generado",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/PROBLEM-STATEMENT.md",
+              "acceptance_criteria": "Todas las secciones completas, inventario técnico presente",
+              "status": "pending"
+            },
+            {
+              "id": "1.8",
+              "task": "Context dump → _session-notes/session-01.md",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/_session-notes/session-01.md",
+              "acceptance_criteria": "Decisiones, preguntas abiertas, supuestos de factibilidad pendientes",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "name": "Personas y user stories",
+          "command": "/s2-personas",
+          "status": "pending",
+          "mode": "Plan Mode",
+          "model": "Opus 4.6",
+          "estimated_duration": "30-45 min",
+          "started_at": null,
+          "completed_at": null,
+          "tasks": [
+            {
+              "id": "2.1",
+              "task": "Contexto cargado desde docs/",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "—",
+              "acceptance_criteria": "Verificar PROBLEM-STATEMENT.md leído antes de proceder",
+              "status": "pending"
+            },
+            {
+              "id": "2.2",
+              "task": "Persona primaria con journey map completo",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Persona primaria en PERSONAS.md",
+              "acceptance_criteria": "Nombre, rol, contexto, dolor, goal, journey actual y deseado",
+              "status": "pending"
+            },
+            {
+              "id": "2.3",
+              "task": "1-2 personas secundarias definidas",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Personas secundarias en PERSONAS.md",
+              "acceptance_criteria": "Diferencias clave vs primaria o justificar por qué una alcanza",
+              "status": "pending"
+            },
+            {
+              "id": "2.4",
+              "task": "User stories descriptivas (10-12, sin MoSCoW formal)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "User stories en PERSONAS.md",
+              "acceptance_criteria": "Formato: Como [persona], quiero [acción], para [beneficio]",
+              "status": "pending"
+            },
+            {
+              "id": "2.5",
+              "task": "Candidatos a MUST marcados como tentativos",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Marcadores en user stories",
+              "acceptance_criteria": "Sí/No/Depende (MoSCoW formal se hace en S5)",
+              "status": "pending"
+            },
+            {
+              "id": "2.6",
+              "task": "docs/PERSONAS.md generado",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/PERSONAS.md",
+              "acceptance_criteria": "Nota: 'MoSCoW formal se define en S5 post-aprobación'",
+              "status": "pending"
+            },
+            {
+              "id": "2.7",
+              "task": "Context dump → _session-notes/session-02.md",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/_session-notes/session-02.md",
+              "acceptance_criteria": "Decisiones y preparación para S3",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "S3",
+          "name": "Exploración de opciones de solución",
+          "command": "/s3-opciones",
+          "status": "pending",
+          "mode": "Plan Mode",
+          "model": "Opus 4.6",
+          "estimated_duration": "45-60 min",
+          "started_at": null,
+          "completed_at": null,
+          "tasks": [
+            {
+              "id": "3.1",
+              "task": "Restricciones y preferencias relevadas",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner + Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Sección 'Restricciones' en OPCIONES-SOLUCION.md",
+              "acceptance_criteria": "Presupuesto, timeline, stack, compliance",
+              "status": "pending"
+            },
+            {
+              "id": "3.2",
+              "task": "Análisis competitivo desde la solución",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Tabla 'Cómo resolvieron otros'",
+              "acceptance_criteria": "Enfoque técnico y lecciones aprendidas",
+              "status": "pending"
+            },
+            {
+              "id": "3.3",
+              "task": "2-3 opciones con propuesta de valor y dependencias de integración",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Fichas de opciones en OPCIONES-SOLUCION.md",
+              "acceptance_criteria": "Cada opción declara sistemas que necesita tocar y tipo de acción",
+              "status": "pending",
+              "new_in_v3_2": true
+            },
+            {
+              "id": "3.4",
+              "task": "Supuestos de factibilidad heredados por opción",
+              "type": "secundaria",
+              "priority": "critica",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Sección 'Supuestos heredados' por opción",
+              "acceptance_criteria": "Cada opción referencia supuestos específicos del inventario de S1",
+              "status": "pending",
+              "new_in_v3_2": true
+            },
+            {
+              "id": "3.5",
+              "task": "Trade-offs documentados",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Tabla de trade-offs",
+              "acceptance_criteria": "Criterios: stories cubiertas, tiempo, complejidad, riesgo, escalabilidad, dependencias",
+              "status": "pending"
+            },
+            {
+              "id": "3.6",
+              "task": "Recomendación justificada con plan B",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Sección 'Recomendación' en OPCIONES-SOLUCION.md",
+              "acceptance_criteria": "Una opción recomendada con justificación y plan B si falla",
+              "status": "pending"
+            },
+            {
+              "id": "3.7",
+              "task": "docs/OPCIONES-SOLUCION.md generado",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "docs/OPCIONES-SOLUCION.md",
+              "acceptance_criteria": "Contexto, restricciones, opciones completas, recomendación, plan B",
+              "status": "pending"
+            },
+            {
+              "id": "3.8",
+              "task": "Context dump → _session-notes/session-03.md",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "docs/_session-notes/session-03.md",
+              "acceptance_criteria": "Decisiones, preguntas abiertas, prep para S4",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "S4",
+          "name": "Propuesta al cliente (versionable)",
+          "command": "/s4-propuesta",
+          "status": "pending",
+          "mode": "Plan Mode",
+          "model": "Opus 4.6",
+          "estimated_duration": "30-45 min (v1) / 15-25 min (iteraciones)",
+          "started_at": null,
+          "completed_at": null,
+          "current_version": 0,
+          "client_iterations": 0,
+          "tasks": [
+            {
+              "id": "4.1",
+              "task": "Formato de propuesta definido",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "—",
+              "acceptance_criteria": "Formato esperado por cliente, precio, aprobador",
+              "status": "pending"
+            },
+            {
+              "id": "4.2",
+              "task": "Modalidad confirmada (recomendación / opciones abiertas)",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Modalidad en PROPUESTA-CLIENTE.md",
+              "acceptance_criteria": "Default: recomendación única",
+              "status": "pending"
+            },
+            {
+              "id": "4.3",
+              "task": "Propuesta armada con alcance, timeline, condiciones",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Secciones 1-10 de PROPUESTA-CLIENTE.md",
+              "acceptance_criteria": "Lenguaje de negocio, sin jerga técnica",
+              "status": "pending"
+            },
+            {
+              "id": "4.4",
+              "task": "Revisión de lenguaje (sin jerga técnica)",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Revisión del borrador",
+              "acceptance_criteria": "Legible por stakeholder de negocio en 10 min",
+              "status": "pending"
+            },
+            {
+              "id": "4.5",
+              "task": "Cláusula de factibilidad técnica incluida",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner + Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Sección 11 de PROPUESTA-CLIENTE.md",
+              "acceptance_criteria": "Sistemas, supuestos específicos, compromiso de renegociación con plazo",
+              "status": "pending",
+              "new_in_v3_2": true
+            },
+            {
+              "id": "4.6",
+              "task": "docs/PROPUESTA-CLIENTE.md generado",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/PROPUESTA-CLIENTE.md",
+              "acceptance_criteria": "Versión actual con cláusula de factibilidad",
+              "status": "pending"
+            },
+            {
+              "id": "4.7",
+              "task": "Snapshot en docs/_propuestas/propuesta-v[N].md",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/_propuestas/propuesta-v[N].md",
+              "acceptance_criteria": "Historial versionado preservado",
+              "status": "pending"
+            },
+            {
+              "id": "4.8",
+              "task": "Context dump → _session-notes/session-04-v[N].md",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/_session-notes/session-04-v[N].md",
+              "acceptance_criteria": "Contexto de la versión específica preservado",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "GATE_INTERMEDIO",
+          "name": "Aprobación del cliente",
+          "command": "/cliente-aprobo",
+          "status": "pending",
+          "mode": "Normal Mode",
+          "model": "Sonnet 4.6",
+          "estimated_duration": "5 min (command)",
+          "blocks": ["S5", "S6", "S7"],
+          "tasks": [
+            {
+              "id": "GATE.1",
+              "task": "Propuesta presentada al cliente",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Email / reunión",
+              "artifact": "Confirmación de envío",
+              "acceptance_criteria": "Cliente recibió PROPUESTA-CLIENTE.md con cláusula de factibilidad",
+              "status": "pending"
+            },
+            {
+              "id": "GATE.2",
+              "task": "Cliente respondió",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Cliente",
+              "tool": "—",
+              "artifact": "Respuesta documentada",
+              "acceptance_criteria": "Aprobó / pidió cambios / rechazó",
+              "status": "pending"
+            },
+            {
+              "id": "GATE.3",
+              "task": "/cliente-aprobo ejecutado (solo si aprobó)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "/cliente-aprobo",
+              "artifact": "Actualización de tracker y propuesta timestamped",
+              "acceptance_criteria": "Firmante, fecha, medio registrados",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "S5",
+          "name": "PRD, MoSCoW y KPIs con umbrales",
+          "command": "/s5-prd",
+          "status": "pending",
+          "mode": "Plan Mode",
+          "model": "Opus 4.6",
+          "estimated_duration": "60-90 min",
+          "depends_on": "GATE_INTERMEDIO completado",
+          "started_at": null,
+          "completed_at": null,
+          "tasks": [
+            {
+              "id": "5.1",
+              "task": "Verificación: gate intermedio ✅",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "—",
+              "acceptance_criteria": "Si no está aprobado, sesión no arranca",
+              "status": "pending"
+            },
+            {
+              "id": "5.2",
+              "task": "MoSCoW definitivo (máx 5-7 MUST)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "MoSCoW en PRD.md",
+              "acceptance_criteria": "MUST dentro del alcance aprobado por cliente",
+              "status": "pending"
+            },
+            {
+              "id": "5.3",
+              "task": "Abogado del diablo del MVP",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Validación documentada",
+              "acceptance_criteria": "MVP construible en timeline aprobado",
+              "status": "pending"
+            },
+            {
+              "id": "5.4",
+              "task": "KPIs finales con umbrales definidos",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "Sección 7 de PRD.md",
+              "acceptance_criteria": "KPIs con umbrales MVP y producto completo",
+              "status": "pending"
+            },
+            {
+              "id": "5.5",
+              "task": "Riesgos ordinarios + supuestos de factibilidad (8.1 y 8.2)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner + Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Sección 8 de PRD.md",
+              "acceptance_criteria": "8.1 riesgos normales. 8.2 supuestos de factibilidad heredados de cláusula",
+              "status": "pending",
+              "new_in_v3_2": true
+            },
+            {
+              "id": "5.6",
+              "task": "docs/PRD.md generado (10 secciones)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/PRD.md",
+              "acceptance_criteria": "Criterios de aceptación binarios, sección 8.2 presente",
+              "status": "pending"
+            },
+            {
+              "id": "5.7",
+              "task": "docs/MVP-SCOPE.md generado",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/MVP-SCOPE.md",
+              "acceptance_criteria": "Features incluidas, excluidas con razón, criterio de éxito",
+              "status": "pending"
+            },
+            {
+              "id": "5.8",
+              "task": "Context dump → _session-notes/session-05.md",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Product Owner",
+              "tool": "Plan Mode",
+              "artifact": "docs/_session-notes/session-05.md",
+              "acceptance_criteria": "Decisiones y preparación para S6",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "S6",
+          "name": "Arquitectura de microservicios",
+          "command": "/s6-arquitectura",
+          "status": "pending",
+          "mode": "Plan Mode",
+          "model": "Opus 4.6",
+          "estimated_duration": "45-60 min",
+          "started_at": null,
+          "completed_at": null,
+          "tasks": [
+            {
+              "id": "6.1",
+              "task": "Dominio técnico explorado",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Preguntas respondidas",
+              "acceptance_criteria": "Entidades, relaciones, integraciones, escala",
+              "status": "pending"
+            },
+            {
+              "id": "6.2",
+              "task": "Servicios definidos con bounded contexts",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Fichas de servicios en ARCHITECTURE-VISION.md",
+              "acceptance_criteria": "Responsabilidad única, DB propia, APIs, eventos",
+              "status": "pending"
+            },
+            {
+              "id": "6.3",
+              "task": "Stack tecnológico seleccionado y justificado",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Tabla de stack por servicio",
+              "acceptance_criteria": "Justificación por elección, consideración de experiencia del equipo",
+              "status": "pending"
+            },
+            {
+              "id": "6.4",
+              "task": "Patrones de comunicación definidos",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "Tabla de comunicación en ARCHITECTURE-VISION.md",
+              "acceptance_criteria": "Sync/async, fallbacks, dato que viaja",
+              "status": "pending"
+            },
+            {
+              "id": "6.5",
+              "task": "docs/ARCHITECTURE-VISION.md generado",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "docs/ARCHITECTURE-VISION.md",
+              "acceptance_criteria": "Principios, servicios, mapa, stack, patrones, MVP vs completo",
+              "status": "pending"
+            },
+            {
+              "id": "6.6",
+              "task": "Context dump → _session-notes/session-06.md",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Tech Lead",
+              "tool": "Plan Mode",
+              "artifact": "docs/_session-notes/session-06.md",
+              "acceptance_criteria": "Decisiones pendientes para Fase 02",
+              "status": "pending"
+            }
+          ]
+        },
+        {
+          "id": "S7",
+          "name": "Configuración de Claude Code",
+          "command": "/s7-config",
+          "status": "pending",
+          "mode": "Normal Mode",
+          "model": "Sonnet 4.6",
+          "estimated_duration": "20-30 min",
+          "started_at": null,
+          "completed_at": null,
+          "tasks": [
+            {
+              "id": "7.1",
+              "task": ".claude/CLAUDE.md definitivo (<150 líneas)",
+              "type": "principal",
+              "priority": "critica",
+              "responsible": "Tech Lead",
+              "tool": "Normal Mode",
+              "artifact": ".claude/CLAUDE.md",
+              "acceptance_criteria": "Arquitectura, estándares, Git, comandos, reglas para Claude",
+              "status": "pending"
+            },
+            {
+              "id": "7.2",
+              "task": "Estructura de directorios completa",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Tech Lead",
+              "tool": "Bash",
+              "artifact": "Árbol de directorios",
+              "acceptance_criteria": "services/, infrastructure/, tests/, docs/ completos",
+              "status": "pending"
+            },
+            {
+              "id": "7.3",
+              "task": "Git configurado",
+              "type": "secundaria",
+              "priority": "alta",
+              "responsible": "Tech Lead",
+              "tool": "Git",
+              "artifact": ".gitignore, .commitlintrc.json, README.md",
+              "acceptance_criteria": "Commits convencionales configurados",
+              "status": "pending"
+            },
+            {
+              "id": "7.4",
+              "task": "Commit: 'docs: complete Phase 01'",
+              "type": "secundaria",
+              "priority": "media",
+              "responsible": "Tech Lead",
+              "tool": "Git",
+              "artifact": "Commit en historial",
+              "acceptance_criteria": "Todos los docs de Fase 01 commiteados",
+              "status": "pending"
+            }
+          ]
+        }
+      ],
+      "exit_gate": {
+        "name": "Gate de salida — Validación cruzada",
+        "command": "/gate-check",
+        "status": "pending",
+        "checks": [
+          {
+            "id": "GATE_OUT.1",
+            "description": "Propuesta aprobada por el cliente (gate intermedio ✅)",
+            "status": "pending"
+          },
+          {
+            "id": "GATE_OUT.2",
+            "description": "PRD alineado con propuesta aprobada (alcance y timeline)",
+            "status": "pending"
+          },
+          {
+            "id": "GATE_OUT.3",
+            "description": "Supuestos de factibilidad del PRD (8.2) ↔ cláusula de PROPUESTA-CLIENTE.md",
+            "status": "pending",
+            "new_in_v3_2": true
+          },
+          {
+            "id": "GATE_OUT.4",
+            "description": "Sistemas en cláusula ↔ inventario técnico de PROBLEM-STATEMENT.md",
+            "status": "pending",
+            "new_in_v3_2": true
+          },
+          {
+            "id": "GATE_OUT.5",
+            "description": "User stories cubren features MVP del PRD",
+            "status": "pending"
+          },
+          {
+            "id": "GATE_OUT.6",
+            "description": "KPIs finales medibles con features del MVP",
+            "status": "pending"
+          },
+          {
+            "id": "GATE_OUT.7",
+            "description": "Arquitectura soporta todas las features del PRD",
+            "status": "pending"
+          },
+          {
+            "id": "GATE_OUT.8",
+            "description": "Cada feature MUST tiene criterios de aceptación binarios",
+            "status": "pending"
+          },
+          {
+            "id": "GATE_OUT.9",
+            "description": "No hay features MVP sin user story ni user stories MUST sin feature MVP",
+            "status": "pending"
+          },
+          {
+            "id": "GATE_OUT.10",
+            "description": "Alguien externo puede leer los docs y entender qué construir",
+            "status": "pending"
+          }
+        ]
+      }
+    },
+    {
+      "id": "02",
+      "name": "Diseño y especificación técnica",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "gate_passed": false,
+      "sessions": [],
+      "_note": "Las sesiones y tareas de esta fase se generan al completar la Fase 01, basadas en los supuestos de factibilidad y la arquitectura definida. La validación de factibilidad ocurre aquí; si algún supuesto falla, se activa la cláusula de renegociación de la propuesta."
+    },
+    {
+      "id": "03",
+      "name": "Desarrollo MVP por fases",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "gate_passed": false,
+      "sessions": [],
+      "_note": "Las sesiones se generan al completar la Fase 02. Desarrollo microservicio por microservicio con TDD."
+    },
+    {
+      "id": "04",
+      "name": "Validación y auditoría",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "gate_passed": false,
+      "sessions": [],
+      "_note": "Decisión GO/ITERATE/PIVOT al final de la fase. Validación con usuarios reales contra criterios del PRD."
+    },
+    {
+      "id": "05",
+      "name": "Evolución a producto completo",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "gate_passed": false,
+      "sessions": [],
+      "_note": "Solo se activa con decisión GO en Fase 04. Escalado, observabilidad, features avanzadas."
+    },
+    {
+      "id": "06",
+      "name": "Operación y mejora continua",
+      "status": "pending",
+      "started_at": null,
+      "completed_at": null,
+      "gate_passed": false,
+      "sessions": [],
+      "_note": "Ciclo permanente: métricas de proceso, retrospectivas, actualización de templates del framework."
+    }
+  ],
+  "changelog": [
+    {
+      "version": "2.0",
+      "date": "2026-04-17",
+      "framework_doc_version": "2.0",
+      "phase_01_guide_version": "3.2",
+      "changes": [
+        "Schema version agregado explícitamente (schema_version: 2.0)",
+        "Source of truth referenciado: framework-doc y phase-01-guide con sus versiones",
+        "Reglas de coherencia agregadas para detectar desalineamientos",
+        "Fase 01 reestructurada a 7 sesiones (antes 5): S1-relevamiento, S2-personas, S3-opciones, S4-propuesta, gate-intermedio, S5-prd, S6-arquitectura, S7-config",
+        "Gate intermedio explícito entre S4 y S5 con comando /cliente-aprobo",
+        "Tasks de S1 extendidas a 1.1-1.8 (incluye inventario técnico 1.6)",
+        "Tasks de S3 incluyen dependencias de integración (3.3) y supuestos heredados (3.4)",
+        "Tasks de S4 incluyen cláusula de factibilidad (4.5)",
+        "Tasks de S5 incluyen supuestos de factibilidad en PRD sección 8.2 (5.5)",
+        "Gate de salida con 10 checks, incluye correspondencia cláusula-PRD-inventario",
+        "Campo project_type agregado: greenfield / integration / mixed",
+        "Campo current_version y client_iterations en S4 para propuestas versionadas",
+        "Status legend extendido con waiting_approval, iterating, rejected"
+      ]
+    },
+    {
+      "version": "1.0",
+      "date": "2026-04-15",
+      "framework_doc_version": "1.0",
+      "phase_01_guide_version": "1.0",
+      "changes": [
+        "Versión inicial con 5 sesiones de Fase 01",
+        "Estructura principal/secundaria para tareas",
+        "Status legend básico"
+      ]
+    }
+  ],
+  "history": []
+}
