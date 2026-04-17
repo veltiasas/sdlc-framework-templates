@@ -7,6 +7,7 @@
 - Proyecto: [NOMBRE_PROYECTO]
 - Inicio: [FECHA]
 - Estado: 🔴 No iniciada
+- Tipo de proyecto: —  (se completa en S1: Greenfield / Integración / Mixto)
 - Sesiones completadas: 0/7
 - Aprobación del cliente: ❌ Pendiente
 - Gate de salida: ❌ No aprobado
@@ -19,8 +20,9 @@
 - [ ] 1.3 Proceso actual y actores documentados
 - [ ] 1.4 Análisis competitivo desde el problema (mín. 3 alternativas)
 - [ ] 1.5 KPIs candidatos definidos (alto nivel, sin umbrales)
-- [ ] 1.6 docs/PROBLEM-STATEMENT.md generado
-- [ ] 1.7 Context dump → _session-notes/session-01.md
+- [ ] 1.6 Inventario técnico de alto nivel (sistemas, acciones, supuestos de factibilidad)
+- [ ] 1.7 docs/PROBLEM-STATEMENT.md generado
+- [ ] 1.8 Context dump → _session-notes/session-01.md
 - **Estado sesión:** ⬜ Pendiente
 
 ## Sesión 2 — Personas y user stories
@@ -36,10 +38,10 @@
 ## Sesión 3 — Exploración de opciones de solución
 - [ ] 3.1 Restricciones y preferencias relevadas
 - [ ] 3.2 Análisis competitivo desde la solución (cómo resolvieron otros)
-- [ ] 3.3 2-3 opciones de solución con propuesta de valor por opción
-- [ ] 3.4 Trade-offs documentados
-- [ ] 3.5 Recomendación justificada con plan B
-- [ ] 3.6 Modalidad de propuesta definida (recomendación/opciones abiertas)
+- [ ] 3.3 2-3 opciones con propuesta de valor y dependencias de integración por opción
+- [ ] 3.4 Supuestos de factibilidad heredados por opción
+- [ ] 3.5 Trade-offs documentados
+- [ ] 3.6 Recomendación justificada con plan B
 - [ ] 3.7 docs/OPCIONES-SOLUCION.md generado
 - [ ] 3.8 Context dump → _session-notes/session-03.md
 - **Estado sesión:** ⬜ Pendiente
@@ -49,9 +51,10 @@
 - [ ] 4.2 Modalidad confirmada (recomendación única / opciones abiertas)
 - [ ] 4.3 Propuesta armada con alcance, timeline, condiciones
 - [ ] 4.4 Revisión de lenguaje (sin jerga técnica)
-- [ ] 4.5 docs/PROPUESTA-CLIENTE.md generado
-- [ ] 4.6 Snapshot en docs/_propuestas/propuesta-v[N].md
-- [ ] 4.7 Context dump → _session-notes/session-04-v[N].md
+- [ ] 4.5 Cláusula de factibilidad técnica incluida (con sistemas y supuestos)
+- [ ] 4.6 docs/PROPUESTA-CLIENTE.md generado
+- [ ] 4.7 Snapshot en docs/_propuestas/propuesta-v[N].md
+- [ ] 4.8 Context dump → _session-notes/session-04-v[N].md
 - **Estado sesión:** ⬜ Pendiente
 - **Iteraciones con cliente:** 0
 
@@ -67,8 +70,8 @@
 - [ ] 5.2 MoSCoW definitivo (máx 5-7 MUST)
 - [ ] 5.3 Abogado del diablo del MVP
 - [ ] 5.4 KPIs finales con umbrales definidos
-- [ ] 5.5 Riesgos y supuestos documentados
-- [ ] 5.6 docs/PRD.md generado (10 secciones, criterios binarios)
+- [ ] 5.5 Riesgos ordinarios + supuestos de factibilidad (8.1 y 8.2)
+- [ ] 5.6 docs/PRD.md generado (10 secciones, sección 8.2 con supuestos de factibilidad)
 - [ ] 5.7 docs/MVP-SCOPE.md generado
 - [ ] 5.8 Context dump → _session-notes/session-05.md
 - **Estado sesión:** ⬜ Pendiente
@@ -94,6 +97,8 @@
 ## Gate de salida — Validación cruzada
 - [ ] Propuesta aprobada por el cliente
 - [ ] PRD alineado con propuesta aprobada (alcance y timeline)
+- [ ] Supuestos de factibilidad del PRD (8.2) ↔ cláusula de PROPUESTA-CLIENTE.md
+- [ ] Sistemas en cláusula ↔ inventario técnico de PROBLEM-STATEMENT.md
 - [ ] User stories cubren features MVP del PRD
 - [ ] KPIs finales medibles con features del MVP
 - [ ] Arquitectura soporta todas las features del PRD
@@ -108,4 +113,4 @@
 ## Historial
 | Fecha | Sesión | Acción | Resultado |
 |-------|--------|--------|-----------|
-| [FECHA] | — | Proyecto inicializado | Estructura creada desde sdlc-framework-templates v3.1 |
+| [FECHA] | — | Proyecto inicializado | Estructura creada desde sdlc-framework-templates v3.2 |

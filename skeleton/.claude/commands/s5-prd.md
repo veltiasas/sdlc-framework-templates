@@ -14,10 +14,13 @@ Si NO está aprobado:
 - Sin presentar al cliente: presentar docs/PROPUESTA-CLIENTE.md
 - Aprobado pero no registrado: /cliente-aprobo
 
-Luego lee TODOS los archivos en docs/. En particular docs/PROPUESTA-CLIENTE.md.
+Luego lee TODOS los archivos en docs/. En particular docs/PROPUESTA-CLIENTE.md
+(incluida la cláusula de factibilidad técnica).
 
-RECORDÁ: Las stories de S2 no tienen MoSCoW. Los KPIs de S1 no tienen umbrales.
-Esta sesión formaliza ambas cosas con la opción aprobada como contexto.
+RECORDÁ:
+- Las stories de S2 no tienen MoSCoW. Los KPIs de S1 no tienen umbrales. Se formalizan acá.
+- La propuesta aprobada tiene una cláusula de factibilidad con sistemas y supuestos.
+  Esos supuestos se convierten en una sección específica del PRD (8.2).
 
 ### PASO 1: MoSCoW definitivo
 Tomá las user stories de PERSONAS.md y el alcance aprobado en PROPUESTA-CLIENTE.md.
@@ -29,7 +32,7 @@ Para cada MUST candidato, preguntame:
 4. ¿Está dentro de lo aprobado por el cliente?
 
 REGLAS: Máx 5-7 MUST. No incluir nada fuera del alcance aprobado.
-Si aparece un MUST que no estaba en la propuesta → STOP. Hay que volver a /s4-propuesta.
+Si aparece un MUST que no estaba en la propuesta → STOP. Volver a /s4-propuesta.
 
 ### PASO 2: Abogado del diablo
 1. ¿Se puede validar la hipótesis con estas features?
@@ -48,10 +51,22 @@ Con la opción elegida, definí para cada KPI:
 - Cómo se instrumenta
 Pueden surgir KPIs nuevos propios de la opción. Documentar.
 
-### PASO 4: Riesgos y supuestos
-Preguntame por categoría: Supuestos, Riesgos técnicos, Riesgos de producto.
+### PASO 4: Riesgos y supuestos (dos categorías)
+
+#### 4.a — Riesgos y supuestos ordinarios
+Preguntame por categoría: Supuestos de negocio, Riesgos técnicos, Riesgos de producto.
 Para cada uno: Probabilidad (A/M/B) + Impacto (A/M/B) + Mitigación.
 Consolidar con riesgos ya identificados en S3/S4 sin duplicar.
+
+#### 4.b — Supuestos de factibilidad técnica (heredados de la propuesta aprobada)
+Tomá la cláusula de factibilidad de docs/PROPUESTA-CLIENTE.md y listá CADA supuesto:
+- Sistema afectado
+- Supuesto asumido
+- Impacto si falla la validación en Fase 02 (alcance / timeline / costo)
+- Referencia a la cláusula de factibilidad
+
+Estos NO son riesgos ordinarios: son compromisos contractuales con el cliente.
+Si en Fase 02 alguno no se cumple, se activa la cláusula de renegociación.
 
 ### PASO 5: Generar PRD (docs/PRD.md)
 10 secciones OBLIGATORIAS:
@@ -62,9 +77,13 @@ Consolidar con riesgos ya identificados en S3/S4 sin duplicar.
 5. Alcance MVP — feature por feature con: descripción, user story, criterios de aceptación BINARIOS
 6. Features futuras: Should / Could / Won't con razón
 7. Métricas de éxito (KPIs finales con umbrales)
-8. Riesgos y supuestos (tabla)
+8. Riesgos y supuestos
+   8.1 Tabla de riesgos ordinarios (Probabilidad / Impacto / Mitigación)
+   8.2 Supuestos de factibilidad técnica pendientes de validación en Fase 02
+       (Sistema / Supuesto / Impacto si falla / Referencia a PROPUESTA-CLIENTE.md)
 9. Timeline (alineado con PROPUESTA-CLIENTE.md aprobada)
 10. Dependencias externas
+
 Pie: Estado BORRADOR, fecha, espacio para aprobación interna.
 REGLA: criterios de aceptación BINARIOS. Nada de "mejorar" o "optimizar".
 

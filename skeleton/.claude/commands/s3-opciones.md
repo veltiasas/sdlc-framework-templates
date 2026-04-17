@@ -9,7 +9,8 @@
 ## Tu tarea
 
 Lee docs/_tracking/FASE-01-STATUS.md — verificá que Sesiones 1 y 2 estén ✅.
-Luego lee docs/PROBLEM-STATEMENT.md y docs/PERSONAS.md.
+Luego lee docs/PROBLEM-STATEMENT.md (incluido el inventario técnico de alto nivel)
+y docs/PERSONAS.md.
 
 Vamos a explorar OPCIONES de solución. No estamos definiendo LA solución todavía.
 
@@ -36,10 +37,18 @@ ENFOQUE: [1-2 oraciones de estrategia]
 PROPUESTA DE VALOR: [1 oración: cómo esta opción específicamente resuelve el problema]
 USER STORIES QUE CUBRE: [IDs o descripción de stories de PERSONAS.md]
 USER STORIES QUE NO CUBRE: [Qué queda afuera]
+DEPENDENCIAS DE INTEGRACIÓN: [Si greenfield: "Ninguna". Si integración: lista de
+  sistemas del inventario técnico de S1 que esta opción requiere tocar, con tipo
+  de acción. Ej:
+  - Sistema de facturación: lectura (consultar pago del cliente)
+  - Sistema de red: lectura (consultar cortes programados)
+  - Sistema de CRM: escritura (registrar interacción)]
 COMPLEJIDAD: Alta / Media / Baja
 TIMELINE ESTIMADO MVP: [semanas]
 RIESGO PRINCIPAL: [El mayor riesgo de este enfoque]
 VENTAJA CLAVE: [Por qué alguien elegiría esta opción]
+SUPUESTOS DE FACTIBILIDAD QUE HEREDA: [Cuáles de los supuestos de S1 son relevantes
+  para esta opción específica. Si depende de que un sistema concreto sea accesible, aclararlo.]
 
 Ejemplo de opciones distintas:
 - A: Automatizar flujo completo (más valor, más riesgo)
@@ -55,7 +64,7 @@ Ejemplo de opciones distintas:
 | Complejidad técnica | | | |
 | Riesgo de no validar hipótesis | | | |
 | Escalabilidad posterior | | | |
-| Dependencias externas | | | |
+| Dependencias externas (sistemas) | | | |
 | Costo relativo | | | |
 | Reversibilidad si falla | | | |
 
@@ -70,7 +79,8 @@ Presentá para mi aprobación antes de documentar.
 
 ### PASO 6: Generar documentación
 1. Creá docs/OPCIONES-SOLUCION.md: contexto, restricciones, análisis competitivo solución,
-   fichas completas de opciones, tabla trade-offs, recomendación + plan B, modalidad propuesta.
+   fichas completas de opciones (con dependencias de integración y supuestos),
+   tabla trade-offs, recomendación + plan B, modalidad propuesta.
 2. Actualizá tracker items 3.1 a 3.7 como [x]. Estado → ✅. Historial.
 
 ### PASO 7: Context dump

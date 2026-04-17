@@ -1,5 +1,33 @@
 # CHANGELOG — sdlc-framework-templates
 
+## v3.2 — 2026-04-17
+
+### Fase 01 Prompt Templates
+
+**Problema atacado:** La Fase 01 v3.1 funcionaba bien para proyectos greenfield pero
+podía generar propuestas que prometían integraciones con sistemas existentes del cliente
+sin evidencia de su factibilidad. Esto afectaba especialmente a proyectos de orquestación
+(agentes de IA, integraciones entre sistemas legacy, etc.).
+
+**Filosofía de la revisión:** Distinción "existencia vs detalle". La Fase 01 identifica
+QUÉ sistemas deben integrarse sin detallarlos técnicamente. El detalle (APIs, auth, SLAs,
+formatos) queda para Fase 02.
+
+**Cambios:**
+- Nuevo PASO 6 en S1: inventario técnico de alto nivel. Paso universal que se adapta —
+  30 segundos en greenfield, 10-15 minutos en proyectos de integración.
+- Dependencias de integración explícitas por opción en S3
+- Nueva sección 11 en la propuesta al cliente: cláusula de factibilidad técnica con
+  compromiso de renegociación si la validación en Fase 02 falla
+- Nueva subsección 8.2 en el PRD: supuestos de factibilidad pendientes de validación
+- Gate-check verifica coherencia entre cláusula de propuesta, PRD 8.2 e inventario de S1
+- Tracker con items nuevos (1.6, 1.7, 1.8, 4.5) y marcador "Tipo de proyecto"
+
+**Sin cambios estructurales en cantidad de sesiones:** Sigue siendo 7 sesiones.
+La S1 se extiende pero no se agregan sesiones nuevas.
+
+---
+
 ## v3.1 — 2026-04-16
 
 ### Fase 01 Prompt Templates
@@ -17,9 +45,7 @@
 - Nota sobre tiempos netos (~4.5h) vs calendario real (5-10 días hábiles)
 
 **Nueva sección:** Sección 7 — Gate intermedio — Aprobación del cliente
-
 **Nuevo command:** `cliente-aprobo.md`
-
 **Nuevos artefactos en skeleton:** `docs/_propuestas/`
 
 ---
@@ -28,7 +54,6 @@
 
 ### Fase 01 Prompt Templates
 
-**Cambios principales:**
 - 2 sesiones nuevas: S3 (Exploración de opciones) y S4 (Propuesta al cliente)
 - Flujo de 5 sesiones → 7 sesiones
 - Nuevo artefacto: `docs/OPCIONES-SOLUCION.md`
@@ -42,7 +67,6 @@
 
 ### Fase 01 Prompt Templates
 
-**Cambios principales:**
 - Repositorio central de templates con `init-project.sh`
 - Commands de Claude Code ejecutables por sesión (`/s[N]-nombre`)
 - Tracking integrado en `docs/_tracking/FASE-01-STATUS.md`
